@@ -33,20 +33,43 @@
         <h2>Skill Issues</h2>
         <p id="skillIssuesCount">0</p>
         <button onclick="increment('skillIssuesCount')">Increase</button>
+        <button onclick="decrement('skillIssuesCount')">Decrease</button>
     </div>
 
     <div class="counter">
         <h2>Days Without Skill Issues</h2>
         <p id="daysWithoutSkillIssuesCount">0</p>
         <button onclick="increment('daysWithoutSkillIssuesCount')">Increase</button>
+        <button onclick="decrement('daysWithoutSkillIssuesCount')">Decrease</button>
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('skillIssuesCount')) {
+                document.getElementById('skillIssuesCount').innerText = localStorage.getItem('skillIssuesCount');
+            }
+
+            if (localStorage.getItem('daysWithoutSkillIssuesCount')) {
+                document.getElementById('daysWithoutSkillIssuesCount').innerText = localStorage.getItem('daysWithoutSkillIssuesCount');
+            }
+        });
+
         function increment(id) {
             const countElement = document.getElementById(id);
             let count = parseInt(countElement.innerText);
             count++;
             countElement.innerText = count;
+            localStorage.setItem(id, count);
+        }
+
+        function decrement(id) {
+            const countElement = document.getElementById(id);
+            let count = parseInt(countElement.innerText);
+            if (count > 0) {
+                count--;
+            }
+            countElement.innerText = count;
+            localStorage.setItem(id, count);
         }
     </script>
 </body>
