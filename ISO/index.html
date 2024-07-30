@@ -50,7 +50,7 @@
         });
 
         function initCounter(id, name) {
-            fetch(`http://thrunting.us/init`, {
+            fetch(`db.thrunting.us/init`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: `name=${name}`
@@ -58,7 +58,7 @@
         }
 
         function updateCounter(id, name) {
-            fetch(`http://thrunting.us/get_counter?name=${name}`)
+            fetch(`db.thrunting.us/get_counter?name=${name}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -75,7 +75,7 @@
 
         function increment(id) {
             const name = id === 'skillIssuesCount' ? 'Skill Issues' : 'Days Without Skill Issues';
-            fetch(`http://thrunting.us/increment`, {
+            fetch(`db.thrunting.us/increment`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: `name=${name}`
@@ -84,7 +84,7 @@
 
         function decrement(id) {
             const name = id === 'skillIssuesCount' ? 'Skill Issues' : 'Days Without Skill Issues';
-            fetch(`http://thrunting.us/decrement`, {
+            fetch(`db.thrunting.us/decrement`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: `name=${name}`
