@@ -29,14 +29,14 @@
     </style>
 </head>
 <body>
-    <div class="counter">
+    <div class="counter" id="skillIssues">
         <h2>Skill Issues</h2>
         <p id="skillIssuesCount">0</p>
         <button onclick="increment('skillIssuesCount')">Increase</button>
         <button onclick="decrement('skillIssuesCount')">Decrease</button>
     </div>
 
-    <div class="counter">
+    <div class="counter" id="daysWithoutSkillIssues">
         <h2>Days Without Skill Issues</h2>
         <p id="daysWithoutSkillIssuesCount">0</p>
         <button onclick="increment('daysWithoutSkillIssuesCount')">Increase</button>
@@ -45,31 +45,42 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            if (localStorage.getItem('skillIssuesCount')) {
-                document.getElementById('skillIssuesCount').innerText = localStorage.getItem('skillIssuesCount');
-            }
-
-            if (localStorage.getItem('daysWithoutSkillIssuesCount')) {
-                document.getElementById('daysWithoutSkillIssuesCount').innerText = localStorage.getItem('daysWithoutSkillIssuesCount');
-            }
+            initCounter('skillIssuesCount', 'Skill Issues');
+            initCounter('daysWithoutSkillIssuesCount', 'Days Without Skill Issues');
         });
 
+        function initCounter(id, name) {
+            fetch(`http://db.thrunting.us/init`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `name=${name}`
+            }).then(() => updateCounter(id, name));
+        }
+
+        function updateCounter(id, name) {
+            fetch(`http://db.thrunting.us/get_counter?name=${name}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById(id).innerText = data.value;
+                });
+        }
+
         function increment(id) {
-            const countElement = document.getElementById(id);
-            let count = parseInt(countElement.innerText);
-            count++;
-            countElement.innerText = count;
-            localStorage.setItem(id, count);
+            const name = id === 'skillIssuesCount' ? 'Skill Issues' : 'Days Without Skill Issues';
+            fetch(`http://db.thrunting.us/increment`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `name=${name}`
+            }).then(() => updateCounter(id, name));
         }
 
         function decrement(id) {
-            const countElement = document.getElementById(id);
-            let count = parseInt(countElement.innerText);
-            if (count > 0) {
-                count--;
-            }
-            countElement.innerText = count;
-            localStorage.setItem(id, count);
+            const name = id === 'skillIssuesCount' ? 'Skill Issues' : 'Days Without Skill Issues';
+            fetch(`http://db.thrunting.us/decrement`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `name=${name}`
+            }).then(() => updateCounter(id, name));
         }
     </script>
 </body>
