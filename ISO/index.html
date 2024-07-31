@@ -29,14 +29,14 @@
     </style>
 </head>
 <body>
-    <div class="counter" id="skillIssues">
+    <div class="counter">
         <h2>Skill Issues</h2>
         <p id="skillIssuesCount">0</p>
         <button onclick="increment('skillIssuesCount')">Increase</button>
         <button onclick="decrement('skillIssuesCount')">Decrease</button>
     </div>
 
-    <div class="counter" id="daysWithoutSkillIssues">
+    <div class="counter">
         <h2>Days Without Skill Issues</h2>
         <p id="daysWithoutSkillIssuesCount">0</p>
         <button onclick="increment('daysWithoutSkillIssuesCount')">Increase</button>
@@ -45,33 +45,31 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            initCounter('skillIssuesCount', 'Skill Issues');
-            initCounter('daysWithoutSkillIssuesCount', 'Days Without Skill Issues');
+            if (localStorage.getItem('skillIssuesCount')) {
+                document.getElementById('skillIssuesCount').innerText = localStorage.getItem('skillIssuesCount');
+            }
+
+            if (localStorage.getItem('daysWithoutSkillIssuesCount')) {
+                document.getElementById('daysWithoutSkillIssuesCount').innerText = localStorage.getItem('daysWithoutSkillIssuesCount');
+            }
         });
 
-        function initCounter(id, name) {
-            fetch(`/init`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `name=${name}` })
-                .then(() => updateCounter(id, name));
-        }
-
-        function updateCounter(id, name) {
-            fetch(`/get_counter?name=${name}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById(id).innerText = data.value;
-                });
-        }
-
         function increment(id) {
-            const name = id === 'skillIssuesCount' ? 'Skill Issues' : 'Days Without Skill Issues';
-            fetch(`/increment`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `name=${name}` })
-                .then(() => updateCounter(id, name));
+            const countElement = document.getElementById(id);
+            let count = parseInt(countElement.innerText);
+            count++;
+            countElement.innerText = count;
+            localStorage.setItem(id, count);
         }
 
         function decrement(id) {
-            const name = id === 'skillIssuesCount' ? 'Skill Issues' : 'Days Without Skill Issues';
-            fetch(`/decrement`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `name=${name}` })
-                .then(() => updateCounter(id, name));
+            const countElement = document.getElementById(id);
+            let count = parseInt(countElement.innerText);
+            if (count > 0) {
+                count--;
+            }
+            countElement.innerText = count;
+            localStorage.setItem(id, count);
         }
     </script>
 </body>
