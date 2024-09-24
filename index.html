@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crappy 90s Rainbow Website</title>
+    <title>Welcome to Thrunting</title>
     <style>
         body {
             background: linear-gradient(45deg, #ff00ff, #00ffff, #ffcc00, #00ff00, #ff0000);
             font-family: "Comic Sans MS", cursive, sans-serif;
             color: #ff00ff;
             text-align: center;
-            animation: colorShift 3s infinite;
+            animation: colorShift 1s infinite;
         }
 
         header {
             background: linear-gradient(to right, #ff0000, #00ff00, #0000ff);
             padding: 20px;
             border: 5px dotted #ffff00;
-            animation: borderBlink 1s infinite;
+            animation: borderBlink 0.5s infinite;
         }
 
         h1 {
             color: #00ff00;
             text-shadow: 3px 3px #ff00ff;
-            animation: shake 0.3s infinite;
+            animation: shake 0.1s infinite, textBlink 0.5s infinite;
             font-size: 48px;
         }
 
@@ -34,17 +34,18 @@
             font-size: 24px;
             margin: 10px 0;
             font-weight: bold;
+            animation: textBlink 0.5s infinite;
         }
 
         p {
             font-size: 24px;
-            animation: zoomInOut 2s infinite, textColorChange 3s infinite;
+            animation: zoomInOut 1s infinite, textColorChange 0.5s infinite;
         }
 
         img {
             border: 10px solid;
             border-image: linear-gradient(to left, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff) 1;
-            animation: rotate 4s infinite linear;
+            animation: rotate 1s infinite linear;
         }
 
         .blinking-box {
@@ -52,10 +53,17 @@
             padding: 20px;
             margin: 20px;
             border: 5px solid #00ffff;
-            animation: blink 1s infinite, moveAround 5s infinite;
+            animation: blink 0.5s infinite, moveAround 2s infinite;
             color: #ffffff;
             font-size: 24px;
             font-weight: bold;
+        }
+
+        .blinking-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff00ff;
+            animation: textBlink 0.3s infinite;
         }
 
         button {
@@ -64,7 +72,7 @@
             border: 3px dashed #000;
             padding: 10px 20px;
             cursor: pointer;
-            animation: rotate 3s infinite linear, borderColorChange 2s infinite;
+            animation: rotate 1s infinite linear, borderColorChange 1s infinite;
             font-size: 20px;
             font-weight: bold;
         }
@@ -73,13 +81,13 @@
             background: linear-gradient(to right, #ff00ff, #00ff00, #0000ff, #ffcc00);
             padding: 10px;
             border-top: 5px dashed #00ff00;
-            animation: colorShift 3s infinite;
+            animation: colorShift 1s infinite, textBlink 0.5s infinite;
         }
 
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
         }
 
         @keyframes colorShift {
@@ -92,12 +100,12 @@
 
         @keyframes zoomInOut {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
+            50% { transform: scale(1.5); }
         }
 
         @keyframes rotate {
             0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            100% { transform: rotate(720deg); }
         }
 
         @keyframes borderBlink {
@@ -112,9 +120,9 @@
 
         @keyframes moveAround {
             0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(-10px, 10px); }
-            50% { transform: translate(10px, -10px); }
-            75% { transform: translate(-10px, -10px); }
+            25% { transform: translate(-20px, 20px); }
+            50% { transform: translate(20px, -20px); }
+            75% { transform: translate(-20px, -20px); }
         }
 
         @keyframes textColorChange {
@@ -132,24 +140,30 @@
             75% { border-color: #ffff00; }
             100% { border-color: #ff00ff; }
         }
+
+        @keyframes textBlink {
+            0%, 100% { color: #ff00ff; }
+            50% { color: #00ffff; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to the 90s Web</h1>
-        <marquee behavior="alternate" scrollamount="15">Scrolling text because it’s 1999 and we love it!</marquee>
+        <h1 class="blinking-text">Welcome to the 90s Web</h1>
+        <marquee behavior="alternate" scrollamount="20">Scrolling text because it’s 1999 and we love it!</marquee>
     </header>
     <main>
-        <p>This website is designed to be as painful as possible to look at. Enjoy the rainbow colors and animations!</p>
-        <img src="https://via.placeholder.com/150" alt="Placeholder image">
+        <p class="blinking-text">This website is designed to be as painful as possible to look at. Enjoy the rainbow colors and animations!</p>
+        <img src="stevenflumpenshire.jpg" alt="Placeholder image">
         <div class="blinking-box">
-            <p>Blinking Box!</p>
+            <p class="blinking-text">Blinking Box!</p>
         </div>
         <button>Click Me!</button>
+        <p class="blinking-text">More blinking text! Look at it go!</p>
     </main>
     <footer>
         <p>© 1990s. All the pain reserved.</p>
-        <marquee direction="up" scrollamount="10">Vertical scrolling text! Keep looking at it!</marquee>
+        <marquee direction="up" scrollamount="20">Vertical scrolling text! Keep looking at it!</marquee>
     </footer>
 </body>
 </html>
