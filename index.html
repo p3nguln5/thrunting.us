@@ -7,11 +7,13 @@
     <title>Crappy 90s Rainbow Website</title>
     <style>
         body {
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffcc00, #00ff00, #ff0000);
+            background: url('https://media.giphy.com/media/6u8HlESk5HtYc/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
             font-family: "Comic Sans MS", cursive, sans-serif;
             color: #ff00ff;
             text-align: center;
             animation: colorShift 1s infinite;
+            overflow: hidden;
         }
 
         header {
@@ -42,13 +44,41 @@
             animation: zoomInOut 1s infinite, textColorChange 0.5s infinite;
         }
 
-        img {
+        .moving-image {
+            position: absolute;
             width: 100px;
-            height: 100px;
-            border: 10px solid;
-            border-image: linear-gradient(to left, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff) 1;
-            animation: rotate 1s infinite linear, moveAroundImage 3s infinite;
-            position: relative;
+            height: auto;
+            animation: moveAround 5s infinite linear;
+        }
+
+        .moving-image:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-duration: 3s;
+        }
+
+        .moving-image:nth-child(2) {
+            top: 20%;
+            left: 80%;
+            animation-duration: 4s;
+        }
+
+        .moving-image:nth-child(3) {
+            top: 50%;
+            left: 20%;
+            animation-duration: 6s;
+        }
+
+        .moving-image:nth-child(4) {
+            top: 70%;
+            left: 60%;
+            animation-duration: 5s;
+        }
+
+        .moving-image:nth-child(5) {
+            top: 30%;
+            left: 40%;
+            animation-duration: 7s;
         }
 
         .blinking-box {
@@ -129,11 +159,12 @@
             100% { transform: translate(50px, 50px); }
         }
 
-        @keyframes moveAroundImage {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(-80px, 80px); }
-            50% { transform: translate(80px, -80px); }
-            75% { transform: translate(-80px, -80px); }
+        @keyframes moveAround {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-100px, 100px); }
+            50% { transform: translate(100px, -100px); }
+            75% { transform: translate(-100px, -100px); }
+            100% { transform: translate(100px, 100px); }
         }
 
         @keyframes textColorChange {
@@ -161,16 +192,22 @@
 <body>
     <header>
         <h1 class="blinking-text">Welcome to the Best Website Ever!</h1>
-        <marquee behavior="alternate" scrollamount="20">HELP ME!!!!!!</marquee>
+        <marquee behavior="alternate" scrollamount="20">HELP ME!!!!!!!!!</marquee>
     </header>
     <main>
         <p class="blinking-text">This is the coolest site on the web, full of amazing animations, bright colors, and lots of fun!</p>
-        <img src="stevenflumpenshire.jpg" alt="Placeholder image">
         <div class="blinking-box">
-            <p class="blinking-text">Can't touch this</p>
+            <p class="blinking-text">Amazing Blinking Box!</p>
         </div>
         <button onclick="window.location.href='https://tylerbever.com';">Click Me to Enter!</button>
         <p class="blinking-text">More blinking text! You can't look away!</p>
+
+        <!-- Moving Images -->
+        <img src="https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif" class="moving-image" alt="Moving Image 1">
+        <img src="https://media.giphy.com/media/l0MYKGuRKMNgTMjao/giphy.gif" class="moving-image" alt="Moving Image 2">
+        <img src="https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif" class="moving-image" alt="Moving Image 3">
+        <img src="https://media.giphy.com/media/SdFFq1sJfBmEx5AfJx/giphy.gif" class="moving-image" alt="Moving Image 4">
+        <img src="https://media.giphy.com/media/BXP8aOdYnaDtzH0p8l/giphy.gif" class="moving-image" alt="Moving Image 5">
     </main>
     <footer>
         <p>© 1990s. All the fun, all the pain, all reserved.</p>
