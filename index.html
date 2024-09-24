@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crappy 90s Rainbow Website</title>
     <style>
@@ -48,37 +48,36 @@
             position: absolute;
             width: 100px;
             height: auto;
-            animation: moveAround 4s infinite linear;
         }
 
         .moving-image:nth-of-type(1) {
             top: 5%;
             left: 5%;
-            animation-duration: 3s;
+            animation: moveDiagonal 2.5s infinite linear;
         }
 
         .moving-image:nth-of-type(2) {
-            top: 15%;
-            left: 65%;
-            animation-duration: 3.5s;
+            top: 10%;
+            left: 70%;
+            animation: moveVertical 3s infinite linear;
         }
 
         .moving-image:nth-of-type(3) {
-            top: 55%;
+            top: 60%;
             left: 10%;
-            animation-duration: 3.2s;
+            animation: moveHorizontal 2s infinite linear;
         }
 
         .moving-image:nth-of-type(4) {
-            top: 65%;
-            left: 75%;
-            animation-duration: 4s;
+            top: 75%;
+            left: 80%;
+            animation: moveCircular 4s infinite linear;
         }
 
         .moving-image:nth-of-type(5) {
-            top: 30%;
-            left: 40%;
-            animation-duration: 2.8s;
+            top: 40%;
+            left: 45%;
+            animation: moveZigZag 3.5s infinite linear;
         }
 
         .blinking-box {
@@ -159,12 +158,44 @@
             100% { transform: translate(50px, 50px); }
         }
 
-        @keyframes moveAround {
+        @keyframes moveDiagonal {
             0% { transform: translate(0, 0); }
-            20% { transform: translate(-200px, 150px); }
-            40% { transform: translate(200px, -200px); }
-            60% { transform: translate(-250px, -150px); }
-            80% { transform: translate(250px, 200px); }
+            25% { transform: translate(150px, 150px); }
+            50% { transform: translate(-150px, -150px); }
+            75% { transform: translate(150px, -150px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveVertical {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-200px); }
+            50% { transform: translateY(200px); }
+            75% { transform: translateY(-150px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes moveHorizontal {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(200px); }
+            50% { transform: translateX(-200px); }
+            75% { transform: translateX(150px); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes moveCircular {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 0) rotate(90deg); }
+            50% { transform: translate(100px, 100px) rotate(180deg); }
+            75% { transform: translate(0, 100px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+
+        @keyframes moveZigZag {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(100px, -50px); }
+            40% { transform: translate(-100px, 50px); }
+            60% { transform: translate(150px, -100px); }
+            80% { transform: translate(-150px, 100px); }
             100% { transform: translate(0, 0); }
         }
 
@@ -204,11 +235,11 @@
         <p class="blinking-text">More blinking text! You can't look away!</p>
 
         <!-- Moving Images -->
-        <img src="https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif" class="moving-image" alt="Moving Image 1">
-        <img src="https://media.giphy.com/media/l0MYKGuRKMNgTMjao/giphy.gif" class="moving-image" alt="Moving Image 2">
-        <img src="https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif" class="moving-image" alt="Moving Image 3">
-        <img src="https://media.giphy.com/media/SdFFq1sJfBmEx5AfJx/giphy.gif" class="moving-image" alt="Moving Image 4">
-        <img src="https://media.giphy.com/media/BXP8aOdYnaDtzH0p8l/giphy.gif" class="moving-image" alt="Moving Image 5">
+        <img src="https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif" class="Moving Image 1" alt="moving-image">
+        <img src="https://media.giphy.com/media/l0MYKGuRKMNgTMjao/giphy.gif" class="Moving Image 2" alt="moving-image">
+        <img src="https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif" class="Moving Image 3" alt="moving-image">
+        <img src="https://media.giphy.com/media/SdFFq1sJfBmEx5AfJx/giphy.gif" class="Moving Image 4" alt="moving-image">
+        <img src="https://media.giphy.com/media/BXP8aOdYnaDtzH0p8l/giphy.gif" class="Moving Image 5" alt="moving-image">
     </main>
     <footer>
         <p>© 1990s. All the fun, all the pain, all reserved.</p>
