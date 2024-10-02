@@ -2,250 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crappy 90s Rainbow Website</title>
+    <title>Welcome to My Site</title>
     <style>
         body {
-            background: url('https://media.giphy.com/media/6u8HlESk5HtYc/giphy.gif') no-repeat center center fixed;
-            background-size: cover;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-            color: #ff00ff;
-            text-align: center;
-            animation: colorShift 1s infinite;
-            overflow: hidden;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
         }
-
         header {
-            background: linear-gradient(to right, #ff0000, #00ff00, #0000ff);
+            text-align: center;
+            padding: 50px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
             padding: 20px;
-            border: 5px dotted #ffff00;
-            animation: borderBlink 0.5s infinite;
+            background-color: #1f1f1f;
         }
-
-        h1 {
-            color: #00ff00;
-            text-shadow: 3px 3px #ff00ff;
-            animation: shake 0.1s infinite, textBlink 0.5s infinite;
-            font-size: 48px;
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
         }
-
-        marquee {
-            color: #ffff00;
-            background-color: #0000ff;
-            font-size: 24px;
-            margin: 10px 0;
-            font-weight: bold;
-            animation: textBlink 0.5s infinite;
+        nav a:hover {
+            color: #BB86FC;
         }
-
-        p {
-            font-size: 24px;
-            animation: zoomInOut 1s infinite, textColorChange 0.5s infinite;
+        .content {
+            text-align: center;
+            padding: 50px;
         }
-
-        .moving-image {
-            position: absolute;
-            width: 100px;
-            height: auto;
-        }
-
-        .moving-image:nth-of-type(1) {
-            top: 5%;
-            left: 5%;
-            animation: moveDiagonal 2.5s infinite linear;
-        }
-
-        .moving-image:nth-of-type(2) {
-            top: 10%;
-            left: 70%;
-            animation: moveVertical 3s infinite linear;
-        }
-
-        .moving-image:nth-of-type(3) {
-            top: 60%;
-            left: 10%;
-            animation: moveHorizontal 2s infinite linear;
-        }
-
-        .moving-image:nth-of-type(4) {
-            top: 75%;
-            left: 80%;
-            animation: moveCircular 4s infinite linear;
-        }
-
-        .moving-image:nth-of-type(5) {
-            top: 40%;
-            left: 45%;
-            animation: moveZigZag 3.5s infinite linear;
-        }
-
-        .blinking-box {
-            background-color: #ff0000;
-            padding: 20px;
-            margin: 20px;
-            border: 5px solid #00ffff;
-            animation: blink 0.5s infinite, moveAroundBox 1s infinite;
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .blinking-text {
-            font-size: 32px;
-            font-weight: bold;
-            color: #ff00ff;
-            animation: textBlink 0.3s infinite;
-        }
-
-        button {
-            background-color: #00ffff;
-            color: #ff00ff;
-            border: 3px dashed #000;
-            padding: 10px 20px;
-            cursor: pointer;
-            animation: rotate 1s infinite linear, borderColorChange 1s infinite;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
         footer {
-            background: linear-gradient(to right, #ff00ff, #00ff00, #0000ff, #ffcc00);
-            padding: 10px;
-            border-top: 5px dashed #00ff00;
-            animation: colorShift 1s infinite, textBlink 0.5s infinite;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
-
-        @keyframes colorShift {
-            0% { background-color: #ff00ff; }
-            25% { background-color: #ffcc00; }
-            50% { background-color: #00ff00; }
-            75% { background-color: #00ffff; }
-            100% { background-color: #ff00ff; }
-        }
-
-        @keyframes zoomInOut {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(720deg); }
-        }
-
-        @keyframes borderBlink {
-            0%, 100% { border-color: #ff0000; }
-            50% { border-color: #00ff00; }
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes moveAroundBox {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-50px, 50px); }
-            50% { transform: translate(50px, -50px); }
-            75% { transform: translate(-50px, -50px); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        @keyframes moveDiagonal {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(150px, 150px); }
-            50% { transform: translate(-150px, -150px); }
-            75% { transform: translate(150px, -150px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        @keyframes moveVertical {
-            0% { transform: translateY(0); }
-            25% { transform: translateY(-200px); }
-            50% { transform: translateY(200px); }
-            75% { transform: translateY(-150px); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes moveHorizontal {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(200px); }
-            50% { transform: translateX(-200px); }
-            75% { transform: translateX(150px); }
-            100% { transform: translateX(0); }
-        }
-
-        @keyframes moveCircular {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(100px, 0) rotate(90deg); }
-            50% { transform: translate(100px, 100px) rotate(180deg); }
-            75% { transform: translate(0, 100px) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
-        }
-
-        @keyframes moveZigZag {
-            0% { transform: translate(0, 0); }
-            20% { transform: translate(100px, -50px); }
-            40% { transform: translate(-100px, 50px); }
-            60% { transform: translate(150px, -100px); }
-            80% { transform: translate(-150px, 100px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        @keyframes textColorChange {
-            0% { color: #ff0000; }
-            25% { color: #00ff00; }
-            50% { color: #0000ff; }
-            75% { color: #ffff00; }
-            100% { color: #ff00ff; }
-        }
-
-        @keyframes borderColorChange {
-            0% { border-color: #ff0000; }
-            25% { border-color: #00ff00; }
-            50% { border-color: #0000ff; }
-            75% { border-color: #ffff00; }
-            100% { border-color: #ff00ff; }
-        }
-
-        @keyframes textBlink {
-            0%, 100% { color: #ff00ff; }
-            50% { color: #00ffff; }
+            text-align: center;
+            padding: 20px;
+            background-color: #1f1f1f;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 class="blinking-text">Welcome to the Best Website Ever!</h1>
-        <marquee behavior="alternate" scrollamount="20">HELP ME!!!!!!!!!!!!!!!!!!!!!!!!</marquee>
+        <h1>Welcome to My Journey</h1>
+        <p>Explore what I've learned, what I'm currently learning, and more!</p>
     </header>
-    <main>
-        <p class="blinking-text">This is the coolest site on the web, full of amazing animations, bright colors, and lots of fun!</p>
-        <div class="blinking-box">
-            <p class="blinking-text">Can't Touch This</p>
-        </div>
-        <button onclick="window.location.href='https://tylerbever.com';">Click Me to Enter!</button>
-        <!-- New button added below -->
-        <button onclick="window.location.href='https://nitsua.xyz';">Click Here for More Fun!</button>
-        <p class="blinking-text">More blinking text! You can't look away!</p>
-
-        <!-- Moving Images -->
-        <img src="https://media.giphy.com/media/2A75RyXVzzSI2bx4Gj/giphy.gif" class="moving-image" alt="Moving Image 1">
-        <img src="https://media.giphy.com/media/l0MYKGuRKMNgTMjao/giphy.gif" class="moving-image" alt="Moving Image 2">
-        <img src="https://media.giphy.com/media/jnQYWZ0T4mkhCmkzcn/giphy.gif" class="moving-image" alt="Moving Image 3">
-        <img src="https://media.giphy.com/media/SdFFq1sJfBmEx5AfJx/giphy.gif" class="moving-image" alt="Moving Image 4">
-        <img src="https://media.giphy.com/media/BXP8aOdYnaDtzH0p8l/giphy.gif" class="moving-image" alt="Moving Image 5">
-    </main>
+    <nav>
+        <a href="about.html">About Me</a>
+        <a href="blog.html">Blog</a>
+    </nav>
+    <div class="content">
+        <h2>Welcome to My Personal Website</h2>
+        <p>This site is where I share my learning experiences and ongoing projects. Check out the "About Me" section for more on who I am, or head to my blog for insights into my current journey.</p>
+    </div>
     <footer>
-        <p>© 1990s. All the fun, all the pain, all reserved.</p>
-        <marquee direction="up" scrollamount="20">Vertical scrolling text! Keep looking at it!</marquee>
+        <p>&copy; 2024 My Journey</p>
     </footer>
 </body>
 </html>
