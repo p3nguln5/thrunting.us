@@ -1,27 +1,27 @@
 /* Custom scrollbar styles */
-::-webkit-scrollbar{
-    width:10px;
-    height:10px;
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
     background-color: rgba(0, 0, 0, 0.2);
 }
-::-webkit-scrollbar:hover{
+::-webkit-scrollbar:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
-::-webkit-scrollbar-thumb{
-    min-height:8px;
-    min-width:8px;
+::-webkit-scrollbar-thumb {
+    min-height: 8px;
+    min-width: 8px;
     background-color: rgba(0, 0, 255, 0.5); /* Blue scrollbar thumb */
 }
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 255, 0.6);
 }
-::-webkit-scrollbar-thumb:active{
+::-webkit-scrollbar-thumb:active {
     background-color: rgba(0, 0, 255, 0.7);
 }
 
 /* General body styling */
 body {
-    background: url("http://farm4.staticflickr.com/3088/3156977955_031c06623f_b.jpg") no-repeat center center fixed; 
+    background: url("space-7273891_1280.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -132,10 +132,4 @@ a:hover, a:active {
     }
     
     .mainContent, .sidebar-1, .sidebar-2, .sidebar-3 {
-        width: 100%;
-    }
-
-    .footer p {
-        width: 86%;
-    }
-}
+        width:
