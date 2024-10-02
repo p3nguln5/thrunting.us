@@ -4,13 +4,8 @@
     height: 10px;
     background-color: rgba(0, 0, 0, 0.2);
 }
-::-webkit-scrollbar:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-}
 ::-webkit-scrollbar-thumb {
-    min-height: 8px;
-    min-width: 8px;
-    background-color: rgba(0, 0, 255, 0.5); /* Blue scrollbar thumb */
+    background-color: rgba(0, 0, 255, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 255, 0.6);
@@ -22,120 +17,112 @@
 /* General body styling */
 body {
     background: url("space-7273891_1280.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
-    background-color: #000000; /* Black background color */
-    color: #00FFFF; /* Light blue text */
-    font-size: 13px; 
+    background-color: #000;
+    color: #00FFFF;
     font-family: 'Lucida Sans', Arial, sans-serif;
-    line-height: 13px;
     margin: 0;
     padding: 0;
-    text-align: left;
 }
 
 .body {
-    clear: both; 
     margin: 0 auto;
     width: 70%;
 }
 
-h1 {
-    color: #00FFFF; /* Light blue */
-    font-size: 28px; 
-    font-family: 'Lobster', 'Lucida Sans', Arial, sans-serif;
-    line-height: 28px;
-    text-align: right;
-    float: right;
-    margin: 30px 30px 0 0;
+/* Header styles */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-h2, h3, h4, h5, h6 {
-    color: #00BFFF; /* Deep Sky Blue */
-}
-
-a:link, a:visited {
-    color: #00BFFF; /* Deep Sky Blue */
-    padding: 0 1px;
-    text-decoration: none;
-}
-
-a:hover, a:active {
-    background-color: rgba(0, 0, 255, 0.5); /* Dark blue hover effect */
-    color: #FFFFFF; /* White text on hover */
-    text-decoration: none;
+.header h1 {
+    color: #00FFFF;
+    font-size: 28px;
+    margin: 30px 0;
 }
 
 .header nav {
-    background: rgba(0, 0, 0, 0.5); /* Darker background for navigation */
-    font-size: 1.143em;
-    height: 40px;
-    line-height: 30px;
-    margin: 0 auto 30px auto;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    margin-bottom: 30px;
 }
 
-.header nav a:link, .header nav a:visited {
-    color: #00FFFF; /* Light blue */
-    display: inline-block;
-    height: 30px;
-    padding: 5px 23px;
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.header nav ul li {
+    margin-right: 15px;
+}
+
+.header nav a {
+    color: #00FFFF;
+    padding: 10px 20px;
     text-decoration: none;
-}
-
-.header nav a:hover, .header nav a:active,
-.header nav .active a:link, .header nav .active a:visited {
-    background-color: rgba(0, 0, 255, 0.5); /* Blue hover for active links */
-    color: #FFFFFF; /* White text for active */
-}
-
-.content-1, .content-2, .sidebar-1, .sidebar-2, .sidebar-3 {
-    background-color: rgba(0, 0, 0, 0.8); /* Black background for content areas */
-    color: #00FFFF; /* Light blue text */
     border-radius: 5px;
-    padding: 3% 5%;
 }
 
+.header nav a:hover {
+    background-color: rgba(0, 0, 255, 0.5);
+    color: #fff;
+}
+
+/* Main content and sidebar layout */
+.mainContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    width: 65%;
+}
+
+.content-1, .content-2 {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00FFFF;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar-1, .sidebar-2, .sidebar-3 {
+    width: 30%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00FFFF;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Footer styles */
 .footer {
-    background-color: rgba(0, 0, 0, 0.5); /* Black footer */
-    color: #00FFFF; /* Light blue text */
-    border-radius: 5px;
-}
-
-.footer p {
-    width: 91%;
-    margin: 2% auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #00FFFF;
     text-align: center;
-    color: #00FFFF; /* Light blue text */
+    padding: 10px 0;
+    border-radius: 5px;
 }
 
 /* Media queries for smaller screens */
-@media only screen and (min-width : 10px) and (max-width : 700px) {
-    .body {
-        width: 90%;
-        font-size: 90%;
+@media (max-width: 700px) {
+    .mainContent {
+        flex-direction: column;
     }
-    
-    .header nav {
-        height: 160px;
-    }
-    
-    .header nav ul {
-        padding-left: 0;
-    }
-    
-    .header nav a:link, .header nav a:visited {
-        color: #00FFFF; /* Light blue links */
-    }
-    
-    .mainContent, .sidebar-1, .sidebar-2, .sidebar-3 {
+
+    .content, .sidebar-1, .sidebar-2, .sidebar-3 {
         width: 100%;
     }
 
-    .footer p {
-        width: 86%;
+    .header nav ul {
+        flex-direction: column;
+    }
+
+    .header nav ul li {
+        margin-bottom: 10px;
     }
 }
