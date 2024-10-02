@@ -132,4 +132,10 @@ a:hover, a:active {
     }
     
     .mainContent, .sidebar-1, .sidebar-2, .sidebar-3 {
-        width:
+        width: 100%;
+    }
+
+    .footer p {
+        width: 86%;
+    }
+}
